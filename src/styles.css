@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500');
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+p {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+h3,
+h4 {
+    font-weight: 300;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
+}

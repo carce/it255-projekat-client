@@ -1,0 +1,22 @@
+<div class="container align-items-center justify-content-center">
+    <div class="row">
+        <div class="col">
+            <h1>Register</h1>
+            <form [formGroup]="register">
+                <div class="form-group">
+                    <label for="inputUsername">Username</label>
+                    <input type="text" class="form-control" formControlName="username" placeholder="Unesite username">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" placeholder="Unesite email">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                </div>
+                <button (click)="onSubmit()" type="submit" class="btn btn-primary right">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

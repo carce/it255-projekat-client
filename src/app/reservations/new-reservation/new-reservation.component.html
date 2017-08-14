@@ -1,0 +1,53 @@
+<div class="container">
+    <h1>Napravite rezervaciju</h1>
+    <h3>Izaberite lokal</h3>
+    <div class="form-check" *ngFor="let local of locations">
+        <label class="form-check-label" (click)="addLocal(local.id)">
+              <input class="form-check-input" type="radio">
+              <h4>{{local.name}}</h4>
+              <p>{{local.address}}</p>
+        </label>
+    </div>
+
+    <div *ngIf="services.length !== 0">
+        <h3>Izaberite uslugu</h3>
+        <div class="form-check" *ngFor="let service of services">
+            <label class="form-check-label" (click)="addService(service.id)">
+                  <input class="form-check-input" type="radio">
+                  <h4>{{service.name}}</h4>
+                  <p>{{service.price}},00 RSD</p>
+            </label>
+        </div>
+
+        <h3>Izaberite datum</h3>
+        <div class="form-check form-check-inline multi-column" *ngFor="let date of dates">
+            <label class="form-check-label" (click)="addDate(date)">
+                  <input class="form-check-input" type="radio">
+                  <p>{{date}}</p>
+            </label>
+        </div>
+    </div>
+
+    <div *ngIf="times.length !== 0 || allFree">
+        <h3>Izaberite vreme</h3>
+        <h4>Zauzeti termini:</h4>
+        <div *ngFor="let time of times">
+            {{time.start}}-{{time.end}},
+        </div>
+        <br>
+        <h4>Unesite termin</h4>
+        <form [formGroup]="timeForm">
+            <input type="text" formControlName="hour"> :
+            <input type="text" formControlName="minut">
+            <button class="btn btn-primary" (click)="addTime()">Submit</button>
+        </form>
+    </div>
+
+    <div *ngIf="myReservation.start">
+        <h4>Izabrano vreme: {{myReservation.start}}</h4>
+        <br>
+        <button class="btn btn-primary btn-lg right " (click)="makeReservation()">Napravi rezervaciju</button>
+    </div>
+    <br>
+    <br>
+</div>
