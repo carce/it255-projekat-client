@@ -4,7 +4,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class AuthService {
-  private url = 'http://localhost/frizer-server/public/index.php';  
+  private url = 'http://localhost';  
 
   constructor(private http: Http) { }
 

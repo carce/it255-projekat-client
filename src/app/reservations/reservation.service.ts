@@ -4,7 +4,7 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class ReservationService {
-  private url = 'http://localhost/frizer-server/public/index.php';
+  private url = 'http://localhost';
 
   private currentReservations = [];
   private reservationSubject = new BehaviorSubject(this.currentReservations);
@@ -43,7 +43,7 @@ export class ReservationService {
 
   addReservation(reservation) {
     let data = 'location_id=' + reservation.local + '&service_id=' + reservation.service +
-    '&date=' + reservation.date + '&time_start=' + reservation.start + '&time_end=00:00:00'; 
+    '&date=' + reservation.date + '&time_start=' + reservation.start; 
     return this.http.post(this.url + '/reservations', data, {headers: this.getHeaders()}).map(res => res.json());
   }
 
